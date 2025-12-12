@@ -1,0 +1,8 @@
+{
+  "name": "PrepAI",
+  "description": "A comprehensive AI-powered interview preparation platform featuring mock interviews, personalized courses, and real-time coding assistance.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
