@@ -1,20 +1,199 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# prepAI — Interview & Career Preparation Studio
 
-This contains everything you need to run your app locally.
+A modern, AI-powered platform to help students and early-career engineers prepare for technical interviews and career growth. prepAI mixes multimodal AI, guided practice, personalized feedback, and curriculum planning to bridge the gap between talent and opportunity.
 
-View your app in AI Studio: https://ai.studio/apps/drive/189ThUV7uMAvD2SPhushZCMTdHnUq7F0q
+View the app in AI Studio: https://ai.studio/apps/drive/189ThUV7uMAvD2SPhushZCMTdHnUq7F0q?fullscreenApplet=true
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+prepAI focuses on:
+- Realistic interview simulations (coding + system design + behavioral)
+- Personalized progress plans and weakness-driven drills
+- Explainable feedback and curated learning resources    
+- Warm-up and career readiness: resumes, LinkedIn, and portfolio reviews 
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+# PrepAI : Crack the Code To Your Future
+> **Entry for Google DeepMind "Vibe Code" Hackathon 2025**
+> *Built with Gemini 3 Pro & Google AI Studio*
+
+[![Gemini 3 Pro](https://img.shields.io/badge/AI-Gemini%203%20Pro-8E44AD?style=for-the-badge)](https://deepmind.google/technologies/gemini/)
+[![Built with Vibe Coding](https://img.shields.io/badge/Built%20with-Vibe%20Coding-blue?style=for-the-badge)](https://aistudio.google.com/)
+
+Gemini 3 Pro + Google AI Studio (example integration)
+
+
+Problem
+- Students receive generic advice like "study algorithms" but struggle to prioritize topics, practice under pressure, or interpret interview feedback.
+- Mock interviews are expensive, inconsistent, or lack quality coaching.
+
+Solution
+AceInterview is a web app that simulates the entire interview experience:
+- Mock Interview: Live simulated interview with multi-turn questioning, timed coding prompts, and behavioral rounds.
+- Grading & Feedback: AI critiques solutions across correctness, efficiency, clarity, and communication.
+- Replay & Explain: Step-by-step breakdown of candidate's solution with improvements and alternate approaches.
+- Personalized Plan: Study plan tailored to weaknesses (e.g., "dynamic programming", "system design basics", "whiteboard communication").
+- Career Tools: Resume analysis, STAR-format behavioral coaching, and portfolio review.
+
+How it works (high level)
+1. Candidate chooses interview type (Algorithm, System Design, Behavioral).
+2. The app launches a timed session that records code, voice (optional), and chat.
+3. An LLM (e.g., Gemini) evaluates code correctness with unit tests + reasoning steps, and scores communication quality for behavioral answers.
+4. The system returns a report with actionable insights, annotated code, specific practice drills, and recommended resources.
+
+Key features demonstrated
+- Multimodal input: code + webcam/voice (optional) + text answers
+- Live scoring with unit tests + AI reasoning checks
+- Guided replays that pinpoint where the candidate lost time or misunderstood the prompt
+- Study plan that adapts as performance improves
+
+⚠️ Disclaimer
+PrepAI is a prototyping example. Feedback should be used for learning purposes only. It is not a substitute for live expert coaching where required.
+
+---
+
+Features — What prepAI Offers
+- Mock Interviews:
+  - Timed coding environment with integrated unit testing.
+  - Behavioral question simulator with STAR-style coaching.
+  - System design prompts with scaffolded hints.
+- Adaptive Learning:
+  - Personalized curriculum that adapts to performance and time available.
+  - Daily micro-drills and spaced-repetition for weak topics.
+- Explainable Feedback:
+  - Line-by-line code commentary, complexity analysis, and alternate solutions.
+  - Interviewer-style communication tips: how to explain trade-offs, what to ask the interviewer.
+- Resume & Profile Review:
+  - Automated resume scoring and targeted suggestions.
+  - Portfolio & GitHub recommendations to highlight impact.
+- Analytics & Progress Tracking:
+  - Growth charts, time-to-comfort metrics, and readiness score.
+- Integrations:
+  - Optional LLM providers (Gemini, OpenAI, local LLMs).
+  - GitHub/GitLab for portfolio imports.
+  - Calendar integrations for scheduling mock interviews.
+
+---
+
+How prepAI Helps Students Land Jobs
+- Prioritization: Focused study plans prevent wasted study time.
+- Practice Under Pressure: Realistic mock interviews reduce anxiety and improve performance.
+- Communication Coaching: Learning to explain solutions is as important as coding them.
+- Portfolio & Resume Optimization: Ensures your work shows impact, not just lines of code.
+
+---
+
+Architecture (concise)
+- Frontend: React / Next.js (interactive coding + replay)
+- Backend: Node.js / Express or serverless API endpoints
+- LLM Layer: Configurable adapters for Gemini / OpenAI / other LLMs
+- Data: Persist user sessions, annotated replays, and curriculum progress
+- Optional: WebRTC for live mock interviews and voice capture
+
+Example flow:
+1) User starts mock interview → 2) Frontend streams code + transcript → 3) Backend sends content to LLM + test harness → 4) LLM returns feedback + suggested next steps → 5) Backend stores session + updates progress.
+
+---
+
+Tech Stack & Integrations
+- Node.js, npm
+- Next.js / React
+- Database: PostgreSQL / SQLite / MongoDB (configurable)
+- LLMs: Gemini (via GEMINI_API_KEY), OpenAI, others
+- Optional: Docker for local development
+
+---
+
+Getting Started — Run Locally
+
+Prerequisites:
+- Node.js v16+ (or the version pinned in the repo)
+- npm or yarn
+- (Optional) A Gemini API key for LLM-powered features
+
+1. Install dependencies
+```bash
+npm install
+```
+
+2. Environment
+Create a .env.local file in the project root with the following entries:
+```env
+# Required for LLM features (example)
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Optional
+DATABASE_URL=postgresql://user:pass@localhost:5432/prepai
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+3. Run the app (development)
+```bash
+npm run dev
+```
+
+4. Run tests (if available)
+```bash
+npm test
+```
+
+Notes
+- If you don't set an LLM key, the app will still run with limited, local-only features or deterministic mocks.
+- For secure deployments, store secrets in your cloud provider or GitHub Secrets.
+
+---
+
+Deployment
+- Deploy Next.js apps to Vercel, Netlify, or your preferred hosting.
+- Run migrations and seeders on first deploy.
+- Configure runtime environment variables (GEMINI_API_KEY, DATABASE_URL, etc.)
+
+AI Studio Link (if using Google AI Studio)
+- View or publish your AI Studio app at: https://ai.studio/apps/drive/189ThUV7uMAvD2SPhushZCMTdHnUq7F0q?fullscreenApplet=true
+
+---
+
+Usage Example: Simulate a Coding Round (CLI)
+```bash
+# Start a local server
+npm run dev
+
+# Open http://localhost:3000 in your browser
+# Start a mock interview, choose "Algorithms - Medium", complete prompt, get feedback
+```
+
+---
+
+Contributing
+We welcome contributors! Please:
+- Open an issue describing the feature or bug
+- Fork the repo and create a branch: feat/your-feature or fix/issue-number
+- Submit a pull request with tests and clear description
+
+---
+
+Security & Ethics
+- AI feedback is probabilistic. Always validate auto-generated interview feedback against a human coach when in doubt.
+- We implement guardrails to avoid harmful instructions or biased feedback. If you find an issue, please report it.
+- For deployments handling personal data, ensure compliance with local privacy laws (GDPR, CCPA) and secure storage of recordings/transcripts.
+
+---
+
+Roadmap
+- Live proctoring + collaborative mock interviews
+- Peer-matching for practice interviews
+- Hiring partner dashboard for outcome tracking (opt-in)
+- Offline-first mobile app for drills
+
+
+---
+
+License
+CC BY 4.0
+
+---
+
