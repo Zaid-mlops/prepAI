@@ -39,21 +39,6 @@ AceInterview is a web app that simulates the entire interview experience:
 - Personalized Plan: Study plan tailored to weaknesses (e.g., "dynamic programming", "system design basics", "whiteboard communication").
 - Career Tools: Resume analysis, STAR-format behavioral coaching, and portfolio review.
 
-How it works (high level)
-1. Candidate chooses interview type (Algorithm, System Design, Behavioral).
-2. The app launches a timed session that records code, voice (optional), and chat.
-3. An LLM (e.g., Gemini) evaluates code correctness with unit tests + reasoning steps, and scores communication quality for behavioral answers.
-4. The system returns a report with actionable insights, annotated code, specific practice drills, and recommended resources.
-
-Key features demonstrated
-- Multimodal input: code + webcam/voice (optional) + text answers
-- Live scoring with unit tests + AI reasoning checks
-- Guided replays that pinpoint where the candidate lost time or misunderstood the prompt
-- Study plan that adapts as performance improves
-
-⚠️ Disclaimer
-PrepAI is a prototyping example. Feedback should be used for learning purposes only. It is not a substitute for live expert coaching where required.
-
 ---
 
 Features — What prepAI Offers
@@ -67,9 +52,6 @@ Features — What prepAI Offers
 - Explainable Feedback:
   - Line-by-line code commentary, complexity analysis, and alternate solutions.
   - Interviewer-style communication tips: how to explain trade-offs, what to ask the interviewer.
-- Resume & Profile Review:
-  - Automated resume scoring and targeted suggestions.
-  - Portfolio & GitHub recommendations to highlight impact.
 - Analytics & Progress Tracking:
   - Growth charts, time-to-comfort metrics, and readiness score.
 - Integrations:
@@ -79,32 +61,15 @@ Features — What prepAI Offers
 
 ---
 
-How prepAI Helps Students Land Jobs
-- Prioritization: Focused study plans prevent wasted study time.
-- Practice Under Pressure: Realistic mock interviews reduce anxiety and improve performance.
-- Communication Coaching: Learning to explain solutions is as important as coding them.
-- Portfolio & Resume Optimization: Ensures your work shows impact, not just lines of code.
-
----
-
-Architecture (concise)
-- Frontend: React / Next.js (interactive coding + replay)
-- Backend: Node.js / Express or serverless API endpoints
-- LLM Layer: Configurable adapters for Gemini / OpenAI / other LLMs
-- Data: Persist user sessions, annotated replays, and curriculum progress
-- Optional: WebRTC for live mock interviews and voice capture
-
-Example flow:
-1) User starts mock interview → 2) Frontend streams code + transcript → 3) Backend sends content to LLM + test harness → 4) LLM returns feedback + suggested next steps → 5) Backend stores session + updates progress.
-
----
-
 Tech Stack & Integrations
 - Node.js, npm
 - Next.js / React
 - Database: PostgreSQL / SQLite / MongoDB (configurable)
 - LLMs: Gemini (via GEMINI_API_KEY), OpenAI, others
 - Optional: Docker for local development
+
+Example flow:
+1) User starts mock interview → 2) Frontend streams code + transcript → 3) Backend sends content to LLM + test harness → 4) LLM returns feedback + suggested next steps → 5) Backend stores session + updates progress.
 
 ---
 
@@ -164,30 +129,7 @@ npm run dev
 
 # Open http://localhost:3000 in your browser
 # Start a mock interview, choose "Algorithms - Medium", complete prompt, get feedback
-```
-
----
-
-Contributing
-We welcome contributors! Please:
-- Open an issue describing the feature or bug
-- Fork the repo and create a branch: feat/your-feature or fix/issue-number
-- Submit a pull request with tests and clear description
-
----
-
-Security & Ethics
-- AI feedback is probabilistic. Always validate auto-generated interview feedback against a human coach when in doubt.
-- We implement guardrails to avoid harmful instructions or biased feedback. If you find an issue, please report it.
-- For deployments handling personal data, ensure compliance with local privacy laws (GDPR, CCPA) and secure storage of recordings/transcripts.
-
----
-
-Roadmap
-- Live proctoring + collaborative mock interviews
-- Peer-matching for practice interviews
-- Hiring partner dashboard for outcome tracking (opt-in)
-- Offline-first mobile app for drills
+--- 
 
 
 ---
